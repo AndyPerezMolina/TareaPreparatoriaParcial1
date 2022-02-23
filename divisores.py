@@ -46,6 +46,7 @@ while True:
                 conexion.commit()
                 print("Los registros han sido eliminados")
             elif opcion == 4:
+                print("Vuelva pronto")
                 break
     except :
         print("Debe ingresar una opcion valida")
