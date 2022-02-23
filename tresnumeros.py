@@ -3,7 +3,9 @@ import psycopg2
 def menu():
     print("Menu")
     print("1- Ingresar numeros")
-    print("2- Salir")
+    print("2- Consultar base de datos")
+    print("3- Borrar base de datos")
+    print("4- Salir")
     return()
 
 def operaciones():
@@ -70,8 +72,18 @@ while True:
     try :
             opcion = float(input())
             if opcion == 1:
-                operaciones()  
-            elif opcion == 2:
+                operaciones()
+            elif opcion==2:
+                SQL = 'SELECT * FROM tresnumeros;'
+                cursor.execute(SQL)
+                valores = cursor.fetchall()
+                print(valores)
+            elif opcion==3:
+                SQL = 'DELETE FROM tresnumeros;'
+                cursor.execute(SQL)
+                conexion.commit()
+                print("Los registros han sido eliminados")  
+            elif opcion == 4:
                 break
     except :
         print("Debe ingresar una opcion valida")

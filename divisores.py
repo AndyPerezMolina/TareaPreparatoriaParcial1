@@ -3,7 +3,9 @@ import psycopg2
 def menu():
     print("Menu")
     print("1- Ingresar numeros")
-    print("2- Salir")
+    print("2- Consultar base de datos")
+    print("3- Borrar base de datos")
+    print("4- Salir")
     return()
 
 conexion = psycopg2.connect(
@@ -22,6 +24,8 @@ def operacion():
     for i in range(1,valor+1):
         if valor % i == 0:
             print (i)
+            cursor.execute("INSERT INTO divisores(valor,resultado) VALUES(%s,%s);",(valor,i))
+            conexion.commit() 
 
 cursor = conexion.cursor()
 while True:
@@ -30,8 +34,18 @@ while True:
     try :
             opcion = int(input())
             if opcion == 1:
-                operacion()  
-            elif opcion == 2:
+                operacion()
+            elif opcion==2:
+                SQL = 'SELECT * FROM divisores;'
+                cursor.execute(SQL)
+                valores = cursor.fetchall()
+                print(valores)
+            elif opcion==3:
+                SQL = 'DELETE FROM divisores;'
+                cursor.execute(SQL)
+                conexion.commit()
+                print("Los registros han sido eliminados")
+            elif opcion == 4:
                 break
     except :
         print("Debe ingresar una opcion valida")
