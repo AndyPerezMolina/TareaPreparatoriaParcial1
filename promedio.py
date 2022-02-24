@@ -49,7 +49,7 @@ while True:
     menu()
        
     try :
-            opcion = float(input())
+            opcion = int(input())
             if opcion == 1:
                 operaciones()
             elif opcion==2:
