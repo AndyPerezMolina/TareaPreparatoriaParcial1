@@ -38,17 +38,17 @@ def operaciones():
         print("El numero",num2,"Es diferente")
         cursor.execute("INSERT INTO tresnumeros(num1,num2,num3,resultado) VALUES(%s,%s,%s,%s);",(num1,num2,num3,resultado))
         conexion.commit()
-    elif num1> (num2 and num3) :
+    elif num1>num2 and num1>num3 :
         resultado = num1+num2+num3
         print("La suma es: ",resultado)
         cursor.execute("INSERT INTO tresnumeros(num1,num2,num3,resultado) VALUES(%s,%s,%s,%s);",(num1,num2,num3,resultado))
         conexion.commit()
-    elif num2 > (num1 and num3):
+    elif num2>num1 and num2>num3:
         resultado = num1*num2*num3
         print("La multiplicacion es: ",resultado)
         cursor.execute("INSERT INTO tresnumeros(num1,num2,num3,resultado) VALUES(%s,%s,%s,%s);",(num1,num2,num3,resultado))
         conexion.commit()
-    elif num3 > (num1 and num2):
+    elif num3>num1 and num3>num2:
         resultado = str(num1)+str(num2)+str(num3)
         print("La concatenacion es {:.0f}".format(num1),"{:.0f}".format(num2),"{:.0f}".format(num3))
         cursor.execute("INSERT INTO tresnumeros(num1,num2,num3,resultado) VALUES(%s,%s,%s,%s);",(num1,num2,num3,resultado))
