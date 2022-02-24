@@ -23,7 +23,7 @@ while True:
     try :
         opcion = int(input())
         if opcion == 1:
-                print("Ingresar Palabras")
+                print("Ingresar Cadena de Palabras")
                 cadena = str(input())
                 contador = 0
                 for i in range(0,len(cadena)):
