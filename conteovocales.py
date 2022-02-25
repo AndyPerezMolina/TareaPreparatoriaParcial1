@@ -47,7 +47,7 @@ while True:
         elif opcion == 4:
             break
     except :
-        print("ingrese opcion valida")
+        print("ingrese opcion valida.")
 
 cursor.close()
 conexion.close()
